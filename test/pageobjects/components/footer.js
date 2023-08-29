@@ -1,3 +1,5 @@
+const { BasePage } = require('../basePage');
+
 class Footer extends BasePage {
     constructor() {
         super();
