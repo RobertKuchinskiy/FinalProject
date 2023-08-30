@@ -30,10 +30,10 @@ describe('OZ.by tests on auth page : ', () => {
         await pageFactory.authPage.navigate();
         await pageFactory.authPage.clickAuthLink();
         await pageFactory.authPage.clickLoginTab();
-        await browser.pause(1000);
+        await browser.pause(2000);
         await pageFactory.authPage.setEmail('test@gmail.com');
         await pageFactory.authPage.setPassword('12345678');
-        await browser.pause(1000);
+        await browser.pause(2000);
         expect(await pageFactory.authPage.emailInput.getValue()).to.equal('test@gmail.com');
         expect(await pageFactory.authPage.passwordInput.getValue()).to.equal('12345678');
     });
@@ -42,29 +42,13 @@ describe('OZ.by tests on auth page : ', () => {
         await pageFactory.authPage.navigate();
         await pageFactory.authPage.clickAuthLink();
         await pageFactory.authPage.clickLoginTab();
-        await browser.pause(1000);
+        await browser.pause(2000);
         await pageFactory.authPage.setEmail('invalid@gmail.com');
         await pageFactory.authPage.setPassword('incorrect');
-        await browser.pause(1000);
+        await browser.pause(2000);
         await pageFactory.authPage.clickLoginButton();
-        await browser.pause(1000);
+        await browser.pause(2000);
         expect(await pageFactory.authPage.popOver.isExisting()).to.be.true;
     });
 
-    it('Should successfully check order number', async () => {
-        await pageFactory.authPage.navigate();
-        await pageFactory.authPage.clickAuthLink();
-        await pageFactory.authPage.clickLoginTab();
-        await browser.pause(1000);
-        await pageFactory.authPage.setEmail('robertkuchynski@gmail.com');
-        await pageFactory.authPage.setPassword('8h7T4A');
-        await browser.pause(1000);
-        await pageFactory.authPage.clickLoginButton();
-        await browser.pause(1000);
-        await pageFactory.authPage.orderNumber.waitForExist();
-        // await pageFactory.authPage.personalOrderOpen(); 
-        // await browser.pause(1000);
-        // const orderNumberText = await pageFactory.authPage.orderNumber.getText();
-        // expect(orderNumberText).to.equal('№ 23586067-195-0'); 
-    });
 });

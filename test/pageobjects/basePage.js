@@ -1,4 +1,5 @@
 class BasePage {
+
     async navigate(url) {
         await browser.url(url);
     }
@@ -9,6 +10,10 @@ class BasePage {
 
     async getUrl() {
         return browser.getUrl(); 
+    }
+
+    async click(selector) {
+        await $(selector).click();
     }
 }
 

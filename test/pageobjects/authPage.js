@@ -8,7 +8,7 @@ class AuthPage {
     get popOver() { return $('.i-popover.i-popover_rude.i-popover_visible.i-popover_warning'); }
     get emptySearchResult () { return $('.breadcrumbs__list__item'); }
     get logoLink() { return $('.top-panel__logo__item'); }
-    get personalOrder() { return $('a.top-panel__userbar__orders'); }
+    get personalOrder() { return $('a.top-panel__userbar__orders'); } 
     get orderNumber() { return $('.order-card__line.order-card__line_number'); }
     get firstProduct() { return $('.product-card__link'); }
     get addToBusket() { return $('.product-card__button')}

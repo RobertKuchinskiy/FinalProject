@@ -9,11 +9,11 @@ class Footer extends BasePage {
     }
 
     async goToSocialLink() {
-        await baseElement.clickElement(this.socialLinkYoutube);
+        await this.click(this.socialLinkYoutube);
     }
 
     async goToLicenseLink() {
-        await baseElement.clickElement(this.licenseLink);
+        await this.click(this.licenseLink);
     }
 }
 

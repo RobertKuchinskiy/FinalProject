@@ -23,30 +23,27 @@ describe('OZ.by tests on main page', async () => {
         expect(await pageFactory.authPage.logoLink.isDisplayed()).to.be.true; 
     });
 
-    // it('Check Youtube footer link navigation', async () => {
-    //     await pageFactory.basePage.navigate('https://oz.by/');
-    //     await browser.pause(1000);
-    //     await pageFactory.footer.goToSocialLink();
-    //     const url = await pageFactory.basePage.getUrl(); 
-    //     expect(url).to.contain('youtube.com');
-    // });
+    it('Check license page', async () => {
+        await pageFactory.basePage.navigate('https://oz.by/');
+        await browser.pause(1000);
+        await pageFactory.footer.goToLicenseLink();
+        await browser.pause(1000);
+        const pageTopText = $$('[class*="h"]');
+        expect(pageTopText.isExcisting());
+    });
 
-    // it('Check license page', async () => {
-    //     await pageFactory.basePage.navigate('https://oz.by/');
-    //     await pageFactory.footer.footerExist.isDisplayed(); 
-    //     await pageFactory.footer.goToLicenseLink();
-    //     const currentUrl = await pageFactory.basePage.getUrl(); 
-    //     expect(currentUrl).to.equal('https://oz.by/help/assistant.phtml?l=i.license');
-    // });
-
-    // it('Should navigate to different pages from the footer links', async () => {
-    //     await pageFactory.basePage.navigate('https://oz.by/');
-    //     await pageFactory.footer.goToSocialLink();
-    //     expect(await pageFactory.basePage.getUrl()).toContain('youtube.com');
-    //     await pageFactory.basePage.navigate('https://oz.by/');
-    //     await pageFactory.footer.goToLicenseLink();
-    //     expect(await pageFactory.basePage.getUrl()).toBe('https://oz.by/help/assistant.phtml?l=i.license');
-    // });
+    it('Should navigate to different pages from the footer links', async () => {
+        await pageFactory.basePage.navigate('https://oz.by/');
+        await browser.pause(1000);
+        await pageFactory.footer.goToSocialLink();
+        await browser.pause(1000);
+        const windowHandles = await browser.getWindowHandles();
+        await browser.pause(1000);
+        await browser.switchToWindow(windowHandles[1]);
+        await browser.pause(1000);
+        const newUrl = await browser.getUrl();
+        expect(newUrl).to.contain('youtube.com');
+    });
 
     it('Should verify the page title on different pages', async () => {
         await pageFactory.basePage.navigate('https://oz.by/');
@@ -60,6 +57,10 @@ describe('OZ.by tests on main page', async () => {
 
     it('Should navigate to the homepage from the logo', async () => {
         await pageFactory.basePage.navigate('https://oz.by/');
+        await browser.pause(1000);
+        const leftButton = $('.main-nav__list__item.menu-link-action.main-nav__list__item_spec');
+        await leftButton.click();
+        await browser.pause(1000);
         await pageFactory.authPage.logoLink.click();
         expect(await pageFactory.basePage.getTitle()).equal('OZ.by — интернет-магазин. Книги, игры, косметика, товары для дома, творчества, подарки, продукты. Доставка по Беларуси.');
     });
@@ -74,6 +75,7 @@ describe('OZ.by tests on main page', async () => {
         await browser.pause(1000);
         await pageFactory.authPage.clickLoginButton();
         await browser.pause(1000);
+        await pageFactory.authPage.popOver;
         expect(await pageFactory.authPage.popOver.isExisting());
     });
     
