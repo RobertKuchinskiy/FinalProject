@@ -4,7 +4,7 @@ const { expect } = require('chai');
 const schemaInfoEmpty = require('../apiTestSchema/apiEmpty.schema.json');
 
 
-describe('API Test on oz.by', () => {
+describe('API Test on oz.by/checkout', () => {
     let response;
     let cookie;
 

@@ -3,7 +3,7 @@ const validator = require('jsonschema');
 const { expect } = require('chai');
 const schemaInfo = require('../apiTestSchema/apiBasket.schema.json');
 
-describe('API Test on oz.by', () => {
+describe('API Test on oz.by/goods', () => {
     let response;
 
     before(async () => {
