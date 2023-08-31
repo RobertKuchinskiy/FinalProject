@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "allure": "npx allure generate  reports/allure-results -o reports/allure-report",
+    "allure": "npx allure generate  allure-results -o allure-report",
     "test": "wdio",
     "wdio": "wdio run ./wdio.conf.js",
     "lint": "eslint --debug ./ --fix"

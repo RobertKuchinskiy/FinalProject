@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "boolean",
+        "items": {}
+      },
+      "message": {
+        "type": "string",
+        "items": {}
+      },
+      "id_goods": {
+        "type": "number"
+      }
+    },
+    "required": [
+      "status",
+      "message"
+    ]
+  }

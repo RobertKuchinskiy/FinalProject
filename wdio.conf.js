@@ -4,11 +4,11 @@ exports.config = {
     
     'local',
   
-    specs: [
+    specs: [  
         './test/specs/*.js',
     ],
     exclude: [
-        // 'path/to/excluded/files'
+       
     ],
    
     maxInstances: 10,
