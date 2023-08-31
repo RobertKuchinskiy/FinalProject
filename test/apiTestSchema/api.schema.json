@@ -1,0 +1,78 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "google_data": {
+        "type": "array",
+        "items": {}
+      },
+      "google": {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string"
+          },
+          "ecommerce": {
+            "type": "object",
+            "properties": {
+              "checkout": {
+                "type": "object",
+                "properties": {
+                  "products": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "price": {
+                            "type": "number"
+                          },
+                          "brand": {
+                            "type": "string"
+                          },
+                          "category": {
+                            "type": "string"
+                          },
+                          "quantity": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "id",
+                          "price",
+                          "brand",
+                          "category",
+                          "quantity"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "products"
+                ]
+              }
+            },
+            "required": [
+              "checkout"
+            ]
+          }
+        },
+        "required": [
+          "event",
+          "ecommerce"
+        ]
+      }
+    },
+    "required": [
+      "google_data",
+      "google"
+    ]
+  }
